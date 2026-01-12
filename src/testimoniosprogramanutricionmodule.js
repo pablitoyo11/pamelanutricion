@@ -11,21 +11,21 @@ function crearContenedorTestimoniosProgramaNutricion() {
         nombre: "Santiago",
         edad: "13",
         declaracion: "Antes, mi rendimiento estaba estancado y me lesionaba con frecuencia. Ahora desde que estoy con Pamela mi velocidad y resistencia mejoraron. De ser suplente, ahora soy titular. Las molestias desaparecieron y mi confianza es mejor. Este programa me hizo entrenar más inteligentemente.",
-        imagen: './public/imagenes/testimonio-santiago.jpg',
+        imagen: import.meta.env.BASE_URL + "imagenes/testimonio-santiago.jpg",
       },
       {
         nombre: "Joaquín",
         edad: "13",
         declaracion:
           "Quería avanzar pero no encontraba el camino, hasta que comencé en el programa. Luego de unos meses mi rendimiento mejoró muchisimo, me siento super acompañado y estoy cada día mejor.",
-        imagen: './public/imagenes/testimonio-joaquin.jpg',
+        imagen: import.meta.env.BASE_URL + "imagenes/testimonio-joaquin.jpg",
       },
       {
         nombre: "Mamá de Ignacio",
         edad: "12",
         declaracion:
           "Quería avanzar pero no encontraba el camino, hasta que comencé en el programa. Luego de unos meses mi rendimiento mejoró muchisimo, me siento super acompañado y estoy cada día mejor.",
-        imagen: './public/imagenes/testimonio-ignacio.jpg',
+        imagen: import.meta.env.BASE_URL + "imagenes/testimonio-ignacio.jpg",
       },
     ],
   };

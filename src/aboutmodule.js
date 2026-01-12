@@ -5,7 +5,8 @@ function createAboutHeroContainer() {
   aboutContainer.className = "about-hero";
 
   const aboutHeroImg = document.createElement("img");
-  aboutHeroImg.src = "./public/imagenes/pamela-bustorf-nutricionista-futbol-01.jpg";
+  //aboutHeroImg.src = "./public/imagenes/pamela-bustorf-nutricionista-futbol-01.jpg";
+  aboutHeroImg.src = import.meta.env.BASE_URL + "imagenes/pamela-bustorf-nutricionista-futbol-01.jpg";
   aboutHeroImg.alt = "Pamela Bustorf, nutricionista deportiva";
   aboutHeroImg.className = "about-hero-img";
   aboutContainer.appendChild(aboutHeroImg);
@@ -127,7 +128,8 @@ function createAboutMoreContainer() {
 
   const img = document.createElement("img");
   img.className = "about-more-images";
-  img.src = "./public/imagenes/pamela-bustorf-nutricionista-futbol-02.jpg";
+  //img.src = "./public/imagenes/pamela-bustorf-nutricionista-futbol-02.jpg";
+  img.src = import.meta.env.BASE_URL + "imagenes/pamela-bustorf-nutricionista-futbol-02.jpg";
   img.alt = "Pamela Bustorf, nutricionista deportiva";
   bottom.appendChild(img);
 

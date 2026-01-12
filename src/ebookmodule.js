@@ -11,7 +11,8 @@ function createEbookContainer() {
 
     const ebookImg = document.createElement("img");
     ebookImg.className = "ebook-img";
-    ebookImg.src = './public/imagenes/ebook-nutricion-para-campeones-01.jpg';
+    ebookImg.src = import.meta.env.BASE_URL + "imagenes/ebook-nutricion-para-campeones-01.jpg";
+    ebookImg.alt = "Ebook Nutrición para Campeones";
     ebookContainer.appendChild(ebookImg);
 
     // Título principal del ebook

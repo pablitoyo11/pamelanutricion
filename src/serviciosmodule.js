@@ -16,7 +16,7 @@ function createServiciosProgramaNutricion() {
     // Imagen
     const programaImg = document.createElement("img");
     programaImg.className = "programa-img";
-    programaImg.src = "./public/imagenes/pamela-bustorf-nutricionista-futbol-03.jpg";
+    programaImg.src = import.meta.env.BASE_URL + "imagenes/pamela-bustorf-nutricionista-futbol-03.jpg";
     leftColumn.appendChild(programaImg);
 
     // Beneficios

@@ -16,7 +16,7 @@ function createHomeHeader() {
     pamelaSection.className = "presentacion-pamela";
 
     const pamelaImg = document.createElement("img");
-    pamelaImg.src = './public/imagenes/pamela-bustorf-nutricionista-futbol-02.jpg';
+    pamelaImg.src = import.meta.env.BASE_URL + "imagenes/pamela-bustorf-nutricionista-futbol-02.jpg";
     pamelaImg.alt = "Pamela Bustorf";
     pamelaImg.className = "pamela-img";
     pamelaSection.appendChild(pamelaImg); 
@@ -87,7 +87,7 @@ function createHomeHeader() {
     // EBOOK
     const cardEbook = document.createElement("a");
     cardEbook.className = "panel-card";
-    cardEbook.style.backgroundImage = "url('./public/imagenes/promocional-ebook.jpg')";
+    cardEbook.style.backgroundImage = `url('${import.meta.env.BASE_URL}imagenes/promocional-ebook.jpg')`;
 
     const ebookTitle = document.createElement("h3");
     ebookTitle.innerText = "Nutrición para campeones";
@@ -111,7 +111,7 @@ function createHomeHeader() {
     // PROGRAMA
     const cardPrograma = document.createElement("a");
     cardPrograma.className = "panel-card programa-card";
-    cardPrograma.style.backgroundImage = "url('./public/imagenes/promocional-programa.jpg')";
+    cardPrograma.style.backgroundImage = `url('${import.meta.env.BASE_URL}imagenes/promocional-programa.jpg')`;
 
     const programaTitle = document.createElement("h3");
     programaTitle.innerText = "Programa personalizado";
@@ -135,7 +135,7 @@ function createHomeHeader() {
     // GUÍA PADRES
     const cardGuia = document.createElement("a");
     cardGuia.className = "panel-card";
-    cardGuia.style.backgroundImage = "url('./public/imagenes/promocional-guia-para-padres.jpg')";
+    cardGuia.style.backgroundImage = `url('${import.meta.env.BASE_URL}imagenes/promocional-guia-para-padres.jpg')`;
     cardGuia.href = "https://www.canva.com/design/DAG09WVUiY8/nTcSeXkEZWJTvwHWa09qSg/view?utlId=hb1967e48eb";
     cardGuia.target = "_blank";
 
