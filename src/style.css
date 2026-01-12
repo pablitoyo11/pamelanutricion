@@ -147,7 +147,7 @@ nav button:hover {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: url('./public/imagenes/footer-bg.jpg') no-repeat center center;
+  background: url('/imagenes/footer-bg.jpg') no-repeat center center;
   background-size: cover;
   padding: clamp(5px, 2vw, 20px) clamp(10px, 2vw, 30px);
   color: white;
