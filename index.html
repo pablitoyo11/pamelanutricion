@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pamela-nutricion</title>
+  </head>
+  <body>
+    <header>
+      <div class="banner-branding">
+        <h1>NUTRICIÓN DE PRIMERA</h1>
+      </div>
+      <nav>
+  <!-- Botón hamburguesa -->
+  <button class="menu-toggle" aria-label="Abrir menú">Menú ☰</button>
+
+  <!-- Contenedor de botones -->
+  <div class="nav-links">
+    <button id="homeBtn">INICIO</button>
+    <button id="serviciosBtn">SERVICIOS</button>
+    <button id="aboutBtn">MAS SOBRE MI</button>
+    <button id="contactBtn">CONTACTO</button>
+    <button id="ebookBtn">E-BOOK</button>
+  </div>
+</nav>
+    </header>
+    <div id="app">
+    </div>
+    <div id="content">
+    </div><!-- ESTE CONTENIDO SE ACTUALIZA CON EL JAVASCRIPT DEL NAV BAR -->
+    <footer class="footer">
+      <div class="footer-text">
+        <h2>¡IMPULSA TU<br />RENDIMIENTO!</h2>
+        <p class="name">Nutricionista<br /> Pamela Bustorf</p>
+      </div>
+      <div class="footer-contact">
+        <!-- Icono WhatsApp -->
+        <a href="https://wa.me/tu-numero" target="_blank" aria-label="WhatsApp">
+          <img src="./public/imagenes/WhatsApp-logo.svg" alt="WhatsApp" width="32" height="32" />
+        </a>
+        <!-- Icono Instagram -->
+        <a href="https://instagram.com/tuusuario" target="_blank" aria-label="Instagram">
+          <img src="./public/imagenes/instagram-logo.svg" alt="Instagram" style="width:32px; height:32px;" />
+        </a>
+        <!-- Icono Email -->
+        <a href="mailto:tuemail@dominio.com" aria-label="Email">
+          <img src="./public/imagenes/Gmail-logo.svg" alt="Email" style="width:32px; height:32px;" />
+        </a>
+      </div>
+    </footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
