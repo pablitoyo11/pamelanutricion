@@ -106,9 +106,9 @@ grupoEdad.innerHTML = `
   //  Estilos 
   const style = document.createElement("style");
   style.innerHTML = `
-    .formulario-form { display: flex; flex-direction: column; gap: 15px; max-width: 700px; margin: 0 auto; font-family: Arial, sans-serif; }
+    .formulario-form { display: flex; flex-direction: column; gap: 15px; max-width: 700px; margin: 0 auto; font-family: Arial, sans-serif; font-weight: 700; }
     .checkbox-group { background: #f9f9f9; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(34,201,201,0.1); }
-    .checkbox-group-label { font-weight: bold; margin-bottom: 10px; }
+    .checkbox-group-label { font-weight: 800; margin-bottom: 10px; }
     .checkbox-option { display: block; margin-bottom: 5px; cursor: pointer; }
     .checkbox-option input { margin-right: 8px; }
     .formulario-input { width: 100%; padding: 10px 0px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
@@ -172,7 +172,7 @@ grupoEdad.innerHTML = `
     mensaje += `Me gustaría recibir más información sobre sus servicios. ¡Gracias!`;
     
     // Formato: número con código de país sin "+" ni espacios ni guiones -- Ejemplo 5491112345678 (54 + 9 + 11 1234 5678)
-    const numeroWhatsApp = "5491112345678";
+    const numeroWhatsApp = "5492235921092";
     const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
     
     // Abrir WhatsApp en una nueva ventana

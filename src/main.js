@@ -1,13 +1,7 @@
 import "./style.css";
 
-console.log("nutricion")
+console.log("nutricionista Pamela");
 
-const divContent = document.getElementById("content");
-const pDivContent = document.createElement("p");
-pDivContent.innerText = "Click the buttons to navigate through the sections.";
-divContent.appendChild(pDivContent);
-
-//BOTONES DEL HTML //INICIO //SERVICIOOS // MAS SOBRE MI //CONTACTO //E-BOOK
 
 //CONTROL DEL NAVBAR
 const menuToggle = document.querySelector('.menu-toggle');
@@ -41,11 +35,11 @@ const containers = {
   ebookBtn: ebook.createEbookContainer,
 };
 const buttonURLs = {
-  homeBtn: "/",
-  serviciosBtn: "/programa",
-  aboutBtn: "/sobre-pamela",
-  contactBtn: "/contacto",
-  ebookBtn: "/ebook"
+  homeBtn: "",
+  serviciosBtn: "programa",
+  aboutBtn: "sobre-pamela",
+  contactBtn: "contacto",
+  ebookBtn: "ebook"
 };
 
 
@@ -65,7 +59,7 @@ const navButtons = document.querySelectorAll('nav button');
 function handleButtonClick(buttonId, updateHistory = true) {
   const divContent = document.getElementById("content");
   //asigno la url segun a cada boton segun seccion
-  const url = buttonURLs[buttonId];
+  const url = import.meta.env.BASE_URL + buttonURLs[buttonId];
   // limpiar contenido previo
   divContent.innerHTML = ""; 
   // Agregar el contenido correspondiente llamando al js segun buttonId
@@ -93,3 +87,29 @@ window.addEventListener("popstate", (event) => {
 });
 
 
+
+// Función que se ejecuta al cargar la página para activar el botón correcto y cargar el contenido.
+(() => {
+  const path = window.location.pathname.replace(import.meta.env.BASE_URL, '');  // Obtener la URL sin la base
+  let buttonId = null;
+
+  // Verificar qué botón corresponde a la URL actual
+  for (const [btnId, url] of Object.entries(buttonURLs)) {
+    if (path === url) {
+      buttonId = btnId;
+      break;
+    }
+  }
+
+  // Si se encuentra el botón, cargarlo, si no, cargar la página de inicio
+  if (buttonId) {
+    handleButtonClick(buttonId, false);  // Cargar el contenido para ese botón sin actualizar el historial
+  } else {
+    handleButtonClick("homeBtn", false); // Cargar la página de inicio si no se encuentra coincidencia
+  }
+
+  // Activar el botón correspondiente en el navbar
+  document.querySelectorAll('nav button').forEach(button => {
+    button.classList.toggle('active', button.id === buttonId);
+  });
+})();
