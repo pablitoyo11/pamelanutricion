@@ -1,4 +1,4 @@
-import{c as l}from"./testimoniosprogramanutricionmodule-C-v69GHr.js";function d(){const e=document.createElement("div");e.className="programa-container";const a=document.createElement("div");a.className="programa-left",e.appendChild(a);const t=document.createElement("img");t.className="programa-img",t.src="/pamelanutricion/imagenes/pamela-bustorf-nutricionista-futbol-03.jpg",a.appendChild(t);const i=document.createElement("div");i.className="beneficios-container",i.innerHTML=`
+import{c as l}from"./testimoniosprogramanutricionmodule-2acUoh4g.js";function d(){const e=document.createElement("div");e.className="programa-container";const a=document.createElement("div");a.className="programa-left",e.appendChild(a);const i=document.createElement("img");i.className="programa-img",i.src="/pamelanutricion/imagenes/pamela-bustorf-nutricionista-futbol-03.jpg",a.appendChild(i);const n=document.createElement("div");n.className="beneficios-container",n.innerHTML=`
         <div class="beneficios-programa">
             <h3>PERSONALIZACIÓN</h3>
             <p>Análisis detallado de tu situación actual, estrategias y herramientas para lograr objetivos.</p>
@@ -13,15 +13,15 @@ import{c as l}from"./testimoniosprogramanutricionmodule-C-v69GHr.js";function d(
             <h3>SOPORTE DIARIO</h3>
             <p>Resolución de dudas e inconvenientes para que siempre estés informado y motivado.</p>
         </div>
-    `,a.appendChild(i);const n=document.createElement("div");n.className="programa-right",e.appendChild(n);const r=document.createElement("h1");r.className="programa-title",r.innerText="Es un programa para futbolistas con objetivos claros",n.appendChild(r);const o=document.createElement("div");o.className="programa-textos",o.innerHTML=`
+    `,a.appendChild(n);const t=document.createElement("div");t.className="programa-right",e.appendChild(t);const o=document.createElement("h1");o.className="programa-title",o.innerText="Es un programa para futbolistas con objetivos claros",t.appendChild(o);const r=document.createElement("div");r.className="programa-textos",r.innerHTML=`
         <p>Para el futbolista que busca la excelencia: Potencia tu rendimiento y adquiere un plus en tu rendimiento logrando cuerpo más eficiente. Marca la diferencia en cada partido.</p>
         <p>Deja de improvisar, empieza a dominar: Si estás cansado de probar métodos que no funcionan, es hora de tener un plan claro para tu "entrenamiento invisible" y desatar tu verdadero potencial.</p>
         <p>Asegura tu futuro profesional: Termina la temporada en tu máximo nivel físico y mental. Conviértete en el jugador que todos los equipos quieren fichar y asegura el mejor contrato.</p>
         <p>Que la pretemporada no te cueste el doble: Aprende a gestionar las vacaciones de forma inteligente para volver más fuerte que nunca, ganando la ventaja desde el primer día y sin regalar tu puesto.</p>
-    `,n.appendChild(o);const s=document.createElement("p");s.className="programa-cta",s.innerHTML=`
+    `,t.appendChild(r);const s=document.createElement("p");s.className="programa-cta",s.innerHTML=`
       <p>Invierte en tu cuerpo, da el siguiente paso hacia tu mejor versión.</p>
       <p>Mejora tu nutrición y eleva tu nivel.</p>
-    `,n.appendChild(s);const p=document.createElement("button");p.className="programa-btn seccion-btn",p.innerText="QUIERO MEJORAR MI RENDIMIENTO",n.appendChild(p);const c=document.createElement("style");return c.innerHTML=`
+    `,t.appendChild(s);const p=document.createElement("button");p.className="programa-btn seccion-btn",p.innerText="QUIERO MEJORAR MI RENDIMIENTO",t.appendChild(p);const c=document.createElement("style");return c.innerHTML=`
       .programa-container {
         display: flex;
         gap: 60px;
@@ -115,6 +115,39 @@ import{c as l}from"./testimoniosprogramanutricionmodule-C-v69GHr.js";function d(
           margin: 20px auto;
           font-weight: bold;
       }
+
+    @media (max-width: 720px) {
+      .programa-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 30px;
+      }
+    
+      .programa-left {
+        display: flex;
+        flex-direction: column;  /* Ensure it's a column layout on mobile */
+        width: 100%; /* Take up full width of the container */
+      }
+    
+      .programa-img {
+        aspect-ratio: 4 / 3; /* Adjust aspect ratio for better fit on smaller screens */
+        object-fit: cover; /* Keep the image covered without stretching */
+        height: auto; /* Allow the height to adjust automatically */
+      }
+    
+      .beneficios-container {
+        gap: 10px; /* Adjust gap for better spacing on mobile */
+        width: 100%; /* Make sure it takes full width of the container */
+      }
+    
+      .programa-right {
+        width: 100%; /* Ensure right column takes up full width */
+        padding: 0 20px; /* Add some padding to the right column */
+      }
+    }
+
+    } 
+    
     `,e.appendChild(c),e}function u(){const e=document.createElement("div");e.className="servicios-page-container",e.appendChild(d()),e.appendChild(l());const a=document.createElement("style");return a.innerHTML=`
     .servicios-page-container {
         padding: 10px;
