@@ -8,7 +8,7 @@ function createformularioContainer() {
   const form = document.createElement("form");
   form.className = "formulario-form";
 
-  // --- Sección: ¿Quién sos? (radio) ---
+  //  Sección: ¿Quién sos? (radio) 
 const grupoQuienSos = document.createElement("div");
 grupoQuienSos.className = "checkbox-group"; // podemos mantener la clase para estilos
 grupoQuienSos.innerHTML = `
@@ -19,7 +19,7 @@ grupoQuienSos.innerHTML = `
 `;
   form.appendChild(grupoQuienSos);
 
-  // --- Sección: Edad ---
+  //  Sección: Edad 
 const grupoEdad = document.createElement("div");
 grupoEdad.className = "checkbox-group";
 grupoEdad.innerHTML = `
@@ -32,7 +32,7 @@ grupoEdad.innerHTML = `
 `;
   form.appendChild(grupoEdad);
 
-  // --- Sección: Nivel ---
+  //  Sección: Nivel 
   const grupoNivel = document.createElement("div");
   grupoNivel.className = "checkbox-group";
   grupoNivel.innerHTML = `
@@ -44,7 +44,7 @@ grupoEdad.innerHTML = `
   `;
   form.appendChild(grupoNivel);
 
-  // --- Sección: Qué mejorar ---
+  //  Sección: Qué mejorar 
   const grupoMejorar = document.createElement("div");
   grupoMejorar.className = "checkbox-group";
   grupoMejorar.innerHTML = `
@@ -59,7 +59,7 @@ grupoEdad.innerHTML = `
   `;
   form.appendChild(grupoMejorar);
 
-  // --- Sección: Preocupaciones ---
+  //  Sección: Preocupaciones 
   const grupoPreocup = document.createElement("div");
   grupoPreocup.className = "checkbox-group";
   grupoPreocup.innerHTML = `
@@ -73,7 +73,7 @@ grupoEdad.innerHTML = `
   `;
   form.appendChild(grupoPreocup);
 
-  // --- Campos de texto ---
+  //  Campos de texto 
   const nombreInput = document.createElement("input");
   nombreInput.type = "text";
   nombreInput.placeholder = "Nombre";
@@ -94,7 +94,7 @@ grupoEdad.innerHTML = `
   emailInput.className = "formulario-input";
   form.appendChild(emailInput);
 
-  // --- Botón de envío ---
+  //  Botón de envío 
   const submitBtn = document.createElement("button");
   submitBtn.type = "submit";
   submitBtn.innerText = "Quiero dar el siguiente paso";
@@ -103,11 +103,9 @@ grupoEdad.innerHTML = `
 
   formularioContainer.appendChild(form);
 
-  // --- Estilos ---
+  //  Estilos 
   const style = document.createElement("style");
   style.innerHTML = `
-    h2 { color: rgb(84,169,255); text-align: center; }
-    h3 { color: rgb(86,169,252); text-align: center; margin-bottom: 20px; }
     .formulario-form { display: flex; flex-direction: column; gap: 15px; max-width: 700px; margin: 0 auto; font-family: Arial, sans-serif; }
     .checkbox-group { background: #f9f9f9; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(34,201,201,0.1); }
     .checkbox-group-label { font-weight: bold; margin-bottom: 10px; }
@@ -117,6 +115,72 @@ grupoEdad.innerHTML = `
   `;
   formularioContainer.appendChild(style);
 
+// Manejo del envío del formulario hacia WhatsApp 
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Obtener valores del formulario
+    const nombre = nombreInput.value;
+    const whatsapp = whatsappInput.value;
+    const email = emailInput.value || 'No proporcionado';
+    
+    // Obtener radio buttons seleccionados
+    const quienSos = form.querySelector('input[name="quienSos"]:checked');
+    const edadJugador = form.querySelector('input[name="edadJugador"]:checked');
+    
+    // Obtener checkboxes seleccionados
+    const niveles = Array.from(form.querySelectorAll('input[type="checkbox"]:checked')).filter(cb => {
+      // Identificar checkboxes de nivel por su contexto
+      const parentText = cb.closest('.checkbox-group').querySelector('.checkbox-group-label').textContent;
+      return parentText.includes('¿En qué nivel juega actualmente?');
+    }).map(cb => {
+      // Obtener el texto del label
+      const label = cb.closest('label').textContent.trim();
+      return label;
+    });
+    
+    const mejorar = Array.from(form.querySelectorAll('input[type="checkbox"]:checked')).filter(cb => {
+      const parentText = cb.closest('.checkbox-group').querySelector('.checkbox-group-label').textContent;
+      return parentText.includes('¿Qué te gustaría mejorar principalmente con la nutrición?');
+    }).map(cb => {
+      const label = cb.closest('label').textContent.trim();
+      return label;
+    });
+    
+    const preocupaciones = Array.from(form.querySelectorAll('input[type="checkbox"]:checked')).filter(cb => {
+      const parentText = cb.closest('.checkbox-group').querySelector('.checkbox-group-label').textContent;
+      return parentText.includes('¿qué es lo que más te preocupa?');
+    }).map(cb => {
+      const label = cb.closest('label').textContent.trim();
+      return label;
+    });
+    
+    // Mensaje para WhatsApp
+    let mensaje = `¡Hola! Me interesa recibir información sobre nutrición deportiva.%0A%0A`;
+    mensaje += `*Datos del formulario:*%0A`;
+    mensaje += `👤 *Nombre:* ${nombre}%0A`;
+    mensaje += `📱 *WhatsApp:* ${whatsapp}%0A`;
+    mensaje += `📧 *Email:* ${email}%0A%0A`;
+    
+    mensaje += `*¿Quién sos?* ${quienSos ? quienSos.nextSibling.textContent.trim() : 'No seleccionado'}%0A`;
+    mensaje += `*Edad del jugador:* ${edadJugador ? edadJugador.nextSibling.textContent.trim() : 'No seleccionado'}%0A%0A`;
+    
+    mensaje += `*Nivel actual:* ${niveles.length > 0 ? niveles.join(', ') : 'No seleccionado'}%0A%0A`;
+    mensaje += `*Me gustaría mejorar:* ${mejorar.length > 0 ? mejorar.join(', ') : 'No seleccionado'}%0A%0A`;
+    mensaje += `*Preocupaciones:* ${preocupaciones.length > 0 ? preocupaciones.join(', ') : 'No seleccionado'}%0A%0A`;
+    
+    mensaje += `Me gustaría recibir más información sobre sus servicios. ¡Gracias!`;
+    
+    // Formato: número con código de país sin "+" ni espacios ni guiones -- Ejemplo 5491112345678 (54 + 9 + 11 1234 5678)
+    const numeroWhatsApp = "5491112345678";
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+    
+    // Abrir WhatsApp en una nueva ventana
+    window.open(urlWhatsApp, '_blank');
+    
+    //Resetear el formulario
+    form.reset();
+  });
   return formularioContainer;
 }
 

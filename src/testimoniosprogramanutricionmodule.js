@@ -175,6 +175,58 @@ function crearContenedorTestimoniosProgramaNutricion() {
   flex: 1 1 auto; 
 }
 
+@media (max-width: 720px) {
+  .seccion-testimonios {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .ul-list-personas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .li-de-testimonio {
+    flex: 1 1 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .imagen-persona {
+    width: 150px; 
+    object-fit: cover;
+  }
+
+  .informacion-persona {
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .declaracion-persona {
+    font-size: 0.9em;
+    padding: 10px;
+    margin: 10px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 530px) {
+    .li-de-testimonio {
+      flex-direction: column;
+      align-items: center;
+    }
+    .imagen-persona {
+      width: 100%;}
+  }
+  .informacion-persona {
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+  }
+
+}
 
   `;
   contenedorTestimonios.appendChild(style);

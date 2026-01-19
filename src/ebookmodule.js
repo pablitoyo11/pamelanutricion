@@ -4,7 +4,6 @@
 import { crearContenedorTestimoniosLibro } from './testimonioslibromodule.js';
 
 function createEbookContainer() {
-
     // Contenedor principal de la sección ebook
     const ebookContainer = document.createElement("div");
     ebookContainer.className = "ebook-container";
@@ -17,11 +16,13 @@ function createEbookContainer() {
 
     // Título principal del ebook
     const ebookTitle = document.createElement("h1");
+    ebookTitle.className = "ebook-title";
     ebookTitle.innerText = "Nutrición para Campeones";
     ebookContainer.appendChild(ebookTitle);
 
     // Subtitulo del ebook
     const ebookSubtitle = document.createElement("h2");
+    ebookSubtitle.className = "ebook-subtitle";
     ebookSubtitle.innerText = "La guía definitiva para padres y jóvenes futbolistas";
     ebookContainer.appendChild(ebookSubtitle);
 
@@ -35,30 +36,37 @@ function createEbookContainer() {
       <span class="lineaFinal">¡Transforma su talento ahora!</span>
     `;
     ebookContainer.appendChild(ebookDescription);
-    const ebookComprarBtn = document.createElement("button");
-    ebookComprarBtn.className = "ebook-comprar-btn seccion-btn";
-    ebookComprarBtn.innerText = "COMPRAR LIBRO";
-    ebookContainer.appendChild(ebookComprarBtn);
 
-    // Agregamos la seccion de testimonios del libro importada del modulo   
+    // Contenedor de enlace de compra
+    const ebookComprarLink = document.createElement("a");
+    ebookComprarLink.href = "https://hotmart.com/es/marketplace/productos/nutricion-para-campeones";
+    ebookComprarLink.target = "_blank"; // Abre en nueva pestaña
+    ebookComprarLink.className = "ebook-comprar-btn seccion-btn"; // Aplicamos la misma clase para los estilos
+
+    const ebookComprarBtn = document.createElement("span");
+    ebookComprarBtn.innerText = "COMPRAR LIBRO"; // Texto del enlace
+    ebookComprarLink.appendChild(ebookComprarBtn); // Lo agregamos al enlace
+
+    ebookContainer.appendChild(ebookComprarLink); // Agregamos el enlace al contenedor
+
+    // Agregamos la sección de testimonios del libro
     ebookContainer.appendChild(crearContenedorTestimoniosLibro());
 
-    // clonar el boton de comprar para ponerlo abajo de los testimonios
-    const comprarBtnClon = ebookComprarBtn.cloneNode(true);
-    ebookContainer.appendChild(comprarBtnClon);
+    // Clonamos el enlace de compra
+    const ebookComprarLinkClon = ebookComprarLink.cloneNode(true); // Clonamos todo el enlace, no solo el botón
+    ebookContainer.appendChild(ebookComprarLinkClon); // Lo agregamos debajo de los testimonios
 
-
-    // Estilos específicos para la seccion ebook
+    // Estilos específicos para la sección ebook
     const style = document.createElement("style");
     style.innerHTML = `
         .ebook-container {display: flex;flex-direction: column;align-items: center;padding: 15px;margin: 0px;min-height: 100vh;background: linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%,rgba(108, 179, 104, 0.8) 300px,rgba(108, 179, 104, 0.8) 100%);}
         .ebook-img { display:block; height: clamp(200px, 30vw, 350px); border-radius:5%; box-shadow: 0 0 30px 10px rgba(255, 233, 38, 0.38); margin:20px;}
-        h1 { font-size: 30px; color:rgba(0, 0, 0, 1); text-align:center }
-        h2 { font-size: 25px; color:rgba(0, 0, 0, 1); text-align:center }        
+        .ebook-title { font-size: 30px; color:rgba(0, 0, 0, 1); text-align:center }
+        .ebook-subtitle { font-size: 25px; color:rgba(0, 0, 0, 1); text-align:center }        
         .ebook-description { width:80%; font-family: 'Times New Roman', Times, serif; font-size: 20px; text-align: center; color:rgba(27, 27, 27, 1); margin:20px; }
         .ebook-description .tituloDescription {font-weight: bold; font-size: 1.1em; display: block; margin-bottom: 0.5rem;} 
         .ebook-description .lineaFinal {font-weight: bold; font-size: 1.1em; display: block; color: #000000ff; font-weight: bold; margin-top: 0.5rem;}
-        .ebook-comprar-btn { width:80%; min-width: 170px; max-width: 300px; font-weight: bold;}
+        .ebook-comprar-btn { width:80%; min-width: 170px; max-width: 300px; font-weight: bold; text-align: center; display: block;}
         @media (max-width: 720px) {
           .ebook-container{
             padding:5px;
@@ -70,6 +78,8 @@ function createEbookContainer() {
         }
     `;
     ebookContainer.appendChild(style);
-  return ebookContainer;
+
+    return ebookContainer;
 }
+
 export {createEbookContainer}

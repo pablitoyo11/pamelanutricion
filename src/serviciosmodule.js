@@ -175,6 +175,39 @@ function createServiciosProgramaNutricion() {
           margin: 20px auto;
           font-weight: bold;
       }
+
+    @media (max-width: 720px) {
+      .programa-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 30px;
+      }
+    
+      .programa-left {
+        display: flex;
+        flex-direction: column;  /* Ensure it's a column layout on mobile */
+        width: 100%; /* Take up full width of the container */
+      }
+    
+      .programa-img {
+        aspect-ratio: 4 / 3; /* Adjust aspect ratio for better fit on smaller screens */
+        object-fit: cover; /* Keep the image covered without stretching */
+        height: auto; /* Allow the height to adjust automatically */
+      }
+    
+      .beneficios-container {
+        gap: 10px; /* Adjust gap for better spacing on mobile */
+        width: 100%; /* Make sure it takes full width of the container */
+      }
+    
+      .programa-right {
+        width: 100%; /* Ensure right column takes up full width */
+        padding: 0 20px; /* Add some padding to the right column */
+      }
+    }
+
+    } 
+    
     `;
 
     programaContainer.appendChild(style);
